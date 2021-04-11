@@ -10,4 +10,5 @@ else
 	echo "==> Create new user <=="
 fi
 
-#use variable for username and password
+# use variable for username and password
+# &> /dev/null - means stdout and stderr ignore
