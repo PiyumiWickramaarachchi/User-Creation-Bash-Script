@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cat /etc/passwd | grep -i piyumi &> /dev/null
+
+if [ $? -eq 0 ];then
+	echo "==> User is Alredy Exist <=="
+else
+	useradd piyumi
+	echo pp123 | passwd piyumi --stdin
+	echo "==> Create new user <=="
+fi
+
+#use variable for username and password
