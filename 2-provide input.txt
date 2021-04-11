@@ -1,0 +1,19 @@
+#!/bin/bash
+
+read -p 'Enter user Name : ' USERNAME
+read -sp 'Enter password : ' PASSWORD
+echo
+
+cat /etc/passwd | grep -i $USERNAME &> /dev/null
+
+if [ $? -eq 0 ];then
+	echo "==> User is Alredy Exist <=="
+else
+	useradd $USERNAME
+	echo $PASSWORD | passwd $USERNAME --stdin
+	echo "==> Create new user <=="
+fi
+
+# -p use to prompt same line
+# -s makes the input silent
+# https://ryanstutorials.net/bash-scripting-tutorial/bash-input.php
